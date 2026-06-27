@@ -25,6 +25,8 @@
     Arial, sans-serif;
 }
 
+
+
 /* ── Reset & base ── */
 *,
 *::before,
@@ -67,6 +69,7 @@ span.impor {
   padding: 4px 8px;
   border-radius: 4px;
 }
+
 
 /* ── Badge Grid ── */
 .badge-grid {
@@ -278,7 +281,6 @@ span.impor {
 .page {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 48px);
 }
 .content-grid {
   display: grid;
@@ -300,6 +302,7 @@ span.impor {
 .breadcrumb::before {
   display: none;
 }
+
 
 /* ── Display typography ── */
 .hero-copy h1,
@@ -1772,3 +1775,4 @@ body.quiz-open .qclose {
     font-size: 13px;
   }
 }
+
