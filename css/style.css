@@ -268,8 +268,8 @@ h1 {
   border-radius: 12px;
   padding: 20px;
   border: 1px solid var(--line);
-  background: var(--bg);
-  color: var(--ink);
+  background: var(--accent-dark);
+  color: var(--bg);
   box-shadow: var(--shadow);
 }
 .feat-list li {
@@ -280,8 +280,9 @@ h1 {
   border-bottom: 1px solid var(--line);
 
   line-height: 1.6;
-  font-size: 15px;
-  color: var(--ink);
+  font-size: 13px;
+  color: var(--bg);
+  font-weight: 200;
 }
 
 .feat-list li:last-child {
@@ -292,6 +293,7 @@ h1 {
   height: 24px;
   flex-shrink: 0;
   margin-top: 2px;
+  filter: invert(1);
 }
 
 /* for-whom list */
@@ -340,7 +342,7 @@ h1 {
   background:var(--bg);
   border-radius: 12px;
   padding: 24px;
-  border: 1px solid var(--line);
+  border: 2px solid var(--accent-dark);
   box-shadow:var(--shadow);
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -545,6 +547,7 @@ h1 {
   padding: 16px;
   border-radius: 10px;
   border-bottom: 1px solid var(--line);
+  border: 2px solid var(--accent-dark);
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 .comment:hover {
