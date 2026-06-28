@@ -1,25 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Das 89€-Gerät, das teure Klimaanlagen überflüssig macht</title>
     <link href="images/favicon-adv.ico" rel="icon" type="image/x-icon" />
-    <!-- Quiz chart now renders with local inline canvas logic; no external chart libraries needed. -->
-    <!-- Embedded quiz funnel styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Quiz chart now renders with local inline canvas logic; no external chart libraries needed. -->
+    <!-- Embedded quiz funnel styles -->
     <link href="css/style.css" rel="stylesheet" />
     <style>
+      /* --- Mobile horizontal-overflow guard --- */
       html,
       body {
         max-width: 100%;
         overflow-x: hidden;
       }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
       img,
       video,
       canvas,
@@ -27,11 +35,102 @@
       svg {
         max-width: 100%;
       }
+
+      img,
+      video {
+        height: auto;
+      }
+
+      @media (max-width: 860px) {
+        .content-grid {
+          display: block;
+        }
+
+        /* collapse the article+sidebar columns */
+      }
+
+      /* --- Qinux BreezaMax added CTA buttons (scoped only) --- */
+      #epicooler-floating-cta {
+        position: fixed;
+        left: 50%;
+        bottom: 20px;
+        transform: translateX(-50%);
+        z-index: 9000;
+        display: block;
+        width: 100%;
+        padding: 14px 24px;
+        background: var(--bg);
+        color: var(--brand-dark);
+        border: 2px solid var(--brand-dark);
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 12px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.3;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        transition: all 0.2s ease;
+        max-width: 600px;
+      }
+
+      #epicooler-floating-cta:hover {
+        transform: translateX(-50%) translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        background: var(--brand-dark);
+        color: var(--brand-light);
+      }
+
+      @media (max-width: 600px) {
+        #epicooler-floating-cta {
+          width: calc(100% - 40px);
+        }
+      }
+      #epicooler-floating-cta:active {
+        transform: translateX(-50%);
+      }
+
+      body.quiz-open #epicooler-floating-cta {
+        display: none;
+      }
+
+      #epicooler-inline-cta {
+        display: block;
+        width: 100%;
+        margin: 24px 0 20px;
+        padding: 18px 28px;
+        background: var(--bg);
+        color: var(--brand-dark);
+        border: 2px solid var(--brand-dark);
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 12px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.3;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        transition: all 0.2s ease;
+      }
+
+      #epicooler-inline-cta:hover {
+        background: var(--brand-dark);
+        color: var(--brand-light);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+      }
+
+      #epicooler-inline-cta:active {
+        transform: translateY(0);
+      }
     </style>
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <script type="text/javascript" src="js/track.js"></script>
   </head>
+
   <body>
     <a
       class="redtrack-hidden-cta"
@@ -51,7 +150,7 @@
 
     <!-- Qinux BreezaMax Floating CTA -->
     <a id="epicooler-floating-cta" data-open-quiz="" href="#quiz"
-      >50% sichern — solange Vorrat reicht</a
+      >Jetzt 50% sichern – solange Vorrat reicht</a
     >
     <!-- Advertorial CTAs now open the embedded quiz funnel; quiz result CTAs use the preserved final clickout URL. -->
     <!-- NAV -->
@@ -64,81 +163,61 @@
         >
       </div>
     </nav>
-
-    <section class="hero-split">
-      <div class="hero-split-inner">
-        <div class="hero-copy">
-          <div class="breadcrumb">Trend · Beste Angebote</div>
-          <h1>Das 89€-Gerät, das teure Klimaanlagen überflüssig macht</h1>
-          <p class="hero-lead">
-            Kompakt. Schnell. Ohne Installation. Die Alternative, die die
-            Branche ignorierte.
-          </p>
-          <a class="hero-cta" data-open-quiz="" href="#quiz"
-            >Jetzt 50% sichern</a
-          >
-          <div class="stat-pills">
-            <div class="stat-pill">
-              <span class="stat-value">60.000+</span
-              ><span class="stat-label">Haushalte</span>
-            </div>
-            <div class="stat-pill">
-              <span class="stat-value">2 Min.</span
-              ><span class="stat-label">bis spürbar kühl</span>
-            </div>
-            <div class="stat-pill">
-              <span class="stat-value">89€</span
-              ><span class="stat-label">Einführungspreis</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <img
-            alt="Qinux BreezaMax Produkt"
-            src="images/adv4product1offer.webp"
-          />
-        </div>
-      </div>
-    </section>
-
     <div class="page">
       <div class="content-grid">
         <!-- ===== ARTICLE ===== -->
         <article class="article">
+          <div class="hero">
+            <div class="breadcrumb">Trend > Beste Angebote</div>
+            <h1>Das 89€-Gerät, das teure Klimaanlagen überflüssig macht</h1>
+            <p class="subtitle">
+              Ein Thermik-Ingenieur entwickelte eine kompakte Lösung, die Räume
+              <span class="importext">in wenigen Minuten</span> kühlt — ohne
+              Fensterkit, ohne Installation und zu einem Bruchteil der Kosten.
+            </p>
+            <!-- HERO IMAGE -->
+            <div class="imagecontainer">
+              <img
+                alt="Qinux BreezaMax - Ingenieur am Schreibtisch"
+                class="full"
+                src="images/adv4banner1-alt2.webp"
+              />
+            </div>
+          </div>
+          <!-- BYLINE -->
           <div class="byline">
             <img alt="Lukas Müller" src="images/adv4expert.webp" />
-            <div class="byline-name">Lukas Müller</div>
-            <div class="byline-meta">7. Mai 2026 · Berlin</div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 6px">
+                <span class="byline-name">von Lukas Müller</span>
+                <svg fill="none" height="16" viewBox="0 0 16 16" width="16">
+                  <circle cx="8" cy="8" fill="#1a6ef5" r="8"></circle>
+                  <path
+                    d="M5 8l2 2 4-4"
+                    stroke="#fff"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  ></path>
+                </svg>
+              </div>
+              <div>7. Mai 2026</div>
+            </div>
           </div>
           <p>
-            <strong>Berlin</strong> — Thomas Berger (54), Thermik-Ingenieur aus
-            der Luft- und Raumfahrt, hatte genug. Kühler Raum im Sommer
-            bedeutete: hohe Anschaffungskosten, steigende Stromrechnungen,
-            komplizierte Installation.
+            <strong>Berlin</strong> — Thomas Berger (54), Thermik-Ingenieur mit
+            Erfahrung in der Luft- und Raumfahrt, wollte nicht länger
+            akzeptieren, dass ein kühler Raum im Sommer mehrere Hundert Euro
+            Anschaffungskosten und hohe Stromrechnungen bedeutet. Also
+            entwickelte er ein kompaktes Gerät, das warme Raumluft ansaugt,
+            durch eine präzise Kühlkammer leitet und konzentrierte kühle Luft
+            zurück in den Raum bläst.
           </p>
-          <p>
-            Seine Antwort:
-          </p>
-          <div class="badge-grid">
-            <span class="badge badge--cost">1 -- ein kompaktes Gerät, das warme Luft ansaugt</span>
-            <span class="badge badge--noise">2 -- durch eine präzise Kühlkammer leitet</span>
-            <span class="badge badge--bills">3 -- konzentrierte Kaltluft zurückbläst</span>
-          </div>
-          <div class="media-block media-block--lead">
-            <img
-              alt="Qinux BreezaMax - Ingenieur am Schreibtisch"
-              class="full"
-              src="images/adv4banner1-alt2.webp"
-            />
-          </div>
-          <h2 class="section-head">
-            <span class="section-label">Perspektive</span
-            ><span class="section-title"
-              >„400€ für eine Klimaanlage? Es muss eine bessere Lösung
-              geben."</span
-            >
-          </h2>
-          <div class="media-block">
+          <div class="normalsection">
+            <h2>
+              „400€ für eine Klimaanlage? Es muss eine bessere Lösung geben."
+            </h2>
+            <!-- VIDEO 1 -->
             <video
               autoplay=""
               loop=""
@@ -149,337 +228,327 @@
             >
               <source src="media/adv4banner2-alt2.mp4" type="video/mp4" />
             </video>
-          </div>
-          <div>
             <p>
-              Fenstergerät, mobile Klimaanlage, Technikertermin — immer dasselbe
-              Spiel.
+              Genau das fragte sich Berger, als er wieder vor denselben Optionen
+              stand: Fenstergerät, mobile Klimaanlage oder teurer
+              Technikertermin. Jede Lösung bedeutete :
             </p>
-            <div class="badge-grid">
-              <span class="badge badge--cost">Hohe Kosten</span>
-              <span class="badge badge--noise">Laute Geräte</span>
-              <span class="badge badge--bills">Steigende Rechnungen</span>
+            <div class="features">
+              <ul class="features-list">
+                <li class="feature-item">hohe Anschaffungskosten</li>
+                <li class="feature-item">laute Geräte</li>
+                <li class="feature-item">steigende Monatsrechnungen</li>
+              </ul>
             </div>
+            
           </div>
-          <h2 class="section-head">
-            <span class="section-label">Markt</span
-            ><span class="section-title"
-              >Das Problem, das die Branche nicht lösen wollte</span
-            >
-          </h2>
-          <div class="media-block">
-            <img
-              alt="Teure Klimaanlage"
-              class="inline"
-              src="images/adv4banner3-alt2.webp"
-            />
-          </div>
+          <h2>Das Problem, das die Branche nicht lösen wollte</h2>
+          <!-- IMAGE 2 -->
+          <img
+            alt="Teure Klimaanlage"
+            class="inline"
+            src="images/adv4banner3-alt2.webp"
+          />
           <p>
-            „Über 1.000 Watt. Abluftschlauch. <span class="impor">Ewig bis der Raum angenehm wird.</span>"
-            Berger kennt die Zahlen. „Die Technik existiert. Sie musste nur in
-            ein Gerät passen, das jeder nutzen kann."
+            „Eine herkömmliche Klimaanlage zieht oft über 1.000 Watt, braucht
+            einen Abluftschlauch und benötigt lange, bis der Raum angenehm
+            wird", erklärt Berger. „Die Technik für effizientere Kühlung
+            existiert längst. Sie musste nur in ein Gerät passen, das normale
+            Haushalte wirklich nutzen können."
           </p>
           <p>
-            Zehn Jahre Erfahrung in thermischen Kontrollsystemen — Technologie
-            aus der Luft- und Raumfahrt — gaben ihm den Vorsprung.
+            Mit über zehn Jahren Erfahrung in thermischen Kontrollsystemen — der
+            Technologie, die empfindliche Instrumente vor Überhitzung schützt —
+            hatte Thomas den technischen Hintergrund, um genau das
+            auszuprobieren.
           </p>
+          <!-- Qinux BreezaMax Inline CTA -->
           <a id="epicooler-inline-cta" data-open-quiz="" href="#quiz"
-            >Raum in 2 Minuten kühlen</a
+            >Meinen Raum in 2 Minuten kühlen</a
           >
-          <h2 class="section-head">
-            <span class="section-label">Technik</span
-            ><span class="section-title"
-              >Echte Kühlung. Keine schwere Maschine.</span
-            >
-          </h2>
-          <div class="media-block">
-            <video
-              autoplay=""
-              loop=""
-              muted=""
-              playsinline=""
-              preload="auto"
-              webkit-playsinline=""
-            >
-              <source src="media/adv4banner4-alt2.mp4" type="video/mp4" />
-            </video>
-          </div>
+          <h2>Die Idee: echte Kühlung ohne schwere Maschine</h2>
+          <!-- VIDEO 2 -->
+          <video
+            autoplay=""
+            loop=""
+            muted=""
+            playsinline=""
+            preload="auto"
+            webkit-playsinline=""
+          >
+            <source src="media/adv4banner4-alt2.mp4" type="video/mp4" />
+          </video>
           <p>
-            Warme Luft rein. Durch die Kühlkammer. Spürbar kalte Luft raus. 
-          </p>
-          <div class="badge-grid">
-            <span class="badge badge--cost">Kein Kompressor</span>
-            <span class="badge badge--noise">Kein Fensterkit</span>
-            <span class="badge badge--bills">Keine Werkzeuge</span>
-          </div>
-          <p>
-            Monate Prototypen. Dutzende Konfigurationen. Ergebnis: ein tragbares
-            Gerät mit spürbarer Abkühlung in Minuten.
-          </p>
-          <h2 class="section-head">
-            <span class="section-label">Ergebnis</span
-            ><span class="section-title">Das Ergebnis</span>
-          </h2>
-          <div class="media-block">
-            <video
-              autoplay=""
-              loop=""
-              muted=""
-              playsinline=""
-              preload="auto"
-              webkit-playsinline=""
-            >
-              <source src="media/adv4banner5-alt2.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <p>
-            Spürbare Kühlleistung in unter zwei Minuten. 
-          </p>
-          <div class="badge-grid">
-            <span class="badge badge--cost">Kein Schlauch</span>
-            <span class="badge badge--noise">Keine Installation</span>
-            <span class="badge badge--bills">Kein Kompromiss</span>
-          </div>
-          <h2 class="section-head">
-            <span class="section-label">Feldtest</span
-            ><span class="section-title">Der erste Test</span>
-          </h2>
-          <div class="media-block">
-            <video
-              autoplay=""
-              loop=""
-              muted=""
-              playsinline=""
-              preload="auto"
-              webkit-playsinline=""
-            >
-              <source src="media/adv4banner7-alt2.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <p>
-            33°C im Wohnzimmer. Knopf drücken. <span class="impor">Minuten später:</span> deutlicher
-            Unterschied. Berger testete es immer wieder.
-          </p>
-          <h2 class="section-head">
-            <span class="section-label">Reaktion</span
-            ><span class="section-title"
-              >Was dann geschah, überraschte sogar ihn</span
-            >
-          </h2>
-          <div class="media-block">
-            <video
-              autoplay=""
-              loop=""
-              muted=""
-              playsinline=""
-              preload="auto"
-              webkit-playsinline=""
-            >
-              <source src="media/adv4banner10-alt2.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <p>
-            Sein Nachbar — pensionierter Klimatechniker, 35 Jahre Erfahrung —
-            betrat den Raum. Prüfte das Thermometer. Wurde still. Dann: „Wo
-            bestelle ich?"
+            „Der Schlüssel liegt darin, warme Umgebungsluft effizient durch eine
+            interne Kühlkammer zu bewegen und sie als spürbar kühlen Luftstrom
+            wieder auszugeben", sagt Berger. Kein schwerer Kompressor, kein
+            Fensterkit, keine Werkzeuge.
           </p>
           <p>
-            Kurz darauf wollte die ganze Straße eins. Der Prototyp wurde
-            <strong>Qinux BreezaMax</strong>.
+            Nach mehreren Monaten Prototypenbau testete er verschiedene
+            Luftstrom-Geometrien, Kühlraten und Kammerkonfigurationen. Das
+            Ergebnis war ein tragbares Gerät, das in wenigen Minuten spürbare
+            Abkühlung liefert.
           </p>
-          <h2 class="section-head">
-            <span class="section-label">Wachstum</span
-            ><span class="section-title"
-              >Vom Garagen-Experiment zu 60.000 Haushalten</span
-            >
-          </h2>
+          <h2>Das Ergebnis?</h2>
+          <!-- VIDEO 3 -->
+          <video
+            autoplay=""
+            loop=""
+            muted=""
+            playsinline=""
+            preload="auto"
+            webkit-playsinline=""
+          >
+            <source src="media/adv4banner5-alt2.mp4" type="video/mp4" />
+          </video>
           <p>
-            Was als persönliche Herausforderung begann, ist heute in über 60.000
-            Haushalten im Einsatz.
+            Spürbare Kühlleistung in jedem Raum in weniger als zwei Minuten —
+            ohne sperrige Geräte, Abluftschlauch oder teure Installation.
           </p>
-          <h2 class="section-head">
-            <span class="section-label">Vorteile</span>
-            <span class="section-title"
-              >Warum Qinux BreezaMax funktioniert</span
-            >
-          </h2>
+          <h2>Der erste Test: Die Nachbarn konnten es kaum glauben</h2>
+          <!-- VIDEO 4 -->
+          <video
+            autoplay=""
+            loop=""
+            muted=""
+            playsinline=""
+            preload="auto"
+            webkit-playsinline=""
+          >
+            <source src="media/adv4banner7-alt2.mp4" type="video/mp4" />
+          </video>
+          <p>
+            „Ich stellte den Prototypen in meinem Wohnzimmer auf, als es über
+            33°C hatte, und drückte den Knopf", erinnert sich Berger. „Innerhalb
+            kurzer Zeit war der Unterschied deutlich spürbar. Ich testete es
+            immer wieder, nur um sicherzugehen."
+          </p>
+          <h2>Was dann geschah, überraschte sogar ihn.</h2>
+          <!-- VIDEO 5 -->
+          <video
+            autoplay=""
+            loop=""
+            muted=""
+            playsinline=""
+            preload="auto"
+            webkit-playsinline=""
+          >
+            <source src="media/adv4banner10-alt2.mp4" type="video/mp4" />
+          </video>
+          <p>
+            „Mein Nachbar kam vorbei — er ist pensionierter Klimatechniker mit
+            35 Jahren Berufserfahrung. Er betrat den Raum, prüfte das
+            Thermometer, schaute das Gerät an und wurde plötzlich still. Dann
+            fragte er, wie schnell er selbst eins bekommen könne."
+          </p>
+          <p>
+            Kurz darauf wollte jeder in der Straße eins haben. Aus diesem
+            Prototyp wurde <strong>Qinux BreezaMax</strong>.
+          </p>
+          <h2>Vom Garagen-Experiment zu 60.000 Haushalten</h2>
+          <!-- IMAGE 3 -->
 
-          <div class="media-block">
-            <img
-              alt="Warum Qinux BreezaMax so beliebt ist"
-              class="inline"
-              src="images/adv4banner6-alt2.webp"
-            />
-          </div>
-
-          <div class="feat-badge-grid">
-            <span class="feat-badge"
-              ><strong>34°C → 17°C</strong> in unter 2 Min.</span
-            >
-            <span class="feat-badge"
-              ><strong>90% weniger Strom</strong> als Fensterklimaanlage</span
-            >
-            <span class="feat-badge"
-              ><strong>Keine Installation</strong> – einstecken & los</span
-            >
-            <span class="feat-badge"
-              ><strong>Unter 40 dB</strong> – leiser als eine Bibliothek</span
-            >
-            <span class="feat-badge"
-              ><strong>Unter 1 kg</strong> – überall einsetzbar</span
-            >
-          </div>
-          <h2 class="section-head">
-            <span class="section-label">Zielgruppe</span
-            ><span class="section-title">Für wen ist es gemacht?</span>
-          </h2>
-          <div class="media-block">
-            <video
-              autoplay=""
-              loop=""
-              muted=""
-              playsinline=""
-              preload="auto"
-              webkit-playsinline=""
-            >
-              <source src="media/adv4banner10-alt2.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <ul class="for-grid">
-            <li class="for-item">
-              <span class="for-icon">🏠</span>
-              <span class="for-text">Schlafzimmer, Wohnzimmer oder Homeoffice — <strong>ohne fest installierte Klimaanlage</strong></span>
+          <p>
+            Was als persönliche technische Herausforderung begann, wurde
+            schließlich zu Qinux BreezaMax — einem tragbaren Kühlgerät, das
+            inzwischen in mehr als 60.000 Haushalten eingesetzt wird.
+          </p>
+          <h2>Warum Qinux BreezaMax so beliebt ist</h2>
+          <!-- IMAGE 4 -->
+          <img
+            alt="Warum Qinux BreezaMax so beliebt ist"
+            class="inline"
+            src="images/adv4banner6-alt2.webp"
+          />
+          <ul class="feat-list">
+            <li>
+              <img alt="✓" src="images/check1.webp" /><span
+                >Kühlt jeden Raum von
+                <strong>34°C auf 17°C in weniger als 2 Minuten</strong> —
+                getestet, wiederholbar, zuverlässig</span
+              >
             </li>
-            <li class="for-item">
-              <span class="for-icon">💰</span>
-              <span class="for-text"><strong>Keine 200€–300€ Monatsrechnung</strong> mehr für Kühlung</span>
+            <li>
+              <img alt="✓" src="images/check1.webp" /><span
+                >Verbraucht bis zu <strong>90% weniger Strom</strong> als eine
+                Fensterklimaanlage — läuft stundenlang mit minimalem
+                Energieverbrauch</span
+              >
             </li>
-            <li class="for-item">
-              <span class="for-icon">🔑</span>
-              <span class="for-text">Mietwohnungen, in denen <strong>Fensterklimaanlagen verboten</strong> sind</span>
+            <li>
+              <img alt="✓" src="images/check1.webp" /><span
+                ><strong>Keine Installation erforderlich</strong> — einfach
+                einstecken und einen Knopf drücken. In 30 Sekunden
+                einsatzbereit</span
+              >
             </li>
-            <li class="for-item">
-              <span class="for-icon">👨‍👩‍👧‍👦</span>
-              <span class="for-text">Eltern und Kinder kühl halten, <strong>ohne zentrale Anlage</strong> laufen zu lassen</span>
+            <li>
+              <img alt="✓" src="images/check1.webp" /><span
+                ><strong>Flüsterleise mit unter 40 Dezibel</strong> — leiser als
+                eine Bibliothek, läuft problemlos während des Schlafens</span
+              >
             </li>
-            <li class="for-item">
-              <span class="for-icon">🚐</span>
-              <span class="for-text"><strong>Tragbare Kühlung</strong> für Wohnmobil, Garage oder Terrasse</span>
+            <li>
+              <img alt="✓" src="images/check1.webp" /><span
+                ><strong>Komplett tragbar</strong> bei unter einem Kilogramm —
+                mühelos vom Schlafzimmer ins Büro oder Wohnmobil mitnehmen</span
+              >
             </li>
           </ul>
-          <h2 class="section-head">
-            <span class="section-label">Nachfrage</span
-            ><span class="section-title">Die Nachfrage steigt</span>
-          </h2>
-          <div class="media-block">
-            <img
-              alt="Nachfrage nach Qinux BreezaMax"
-              class="inline"
-              src="images/adv4product1offer.webp"
-            />
-          </div>
-          <p>Frühere Sommer. Stärkere Hitzewellen. Die Nachfrage explodiert.</p>
-          <p>„Wir kommen mit der Produktion kaum hinterher."</p>
+          <h2>Für wen ist Qinux BreezaMax ideal?</h2>
+          <!-- VIDEO 6 -->
+          <video
+            autoplay=""
+            loop=""
+            muted=""
+            playsinline=""
+            preload="auto"
+            webkit-playsinline=""
+          >
+            <source src="media/adv4banner10-alt2.mp4" type="video/mp4" />
+          </video>
+          <p>Qinux BreezaMax wurde für alle entwickelt, die:</p>
+          <ul class="for-list">
+            <li>
+              Ein Schlafzimmer, Wohnzimmer oder Homeoffice ohne fest
+              installierte Klimaanlage kühlen möchten
+            </li>
+            <li>
+              Keine 200€–300€ pro Monat mehr zahlen wollen, nur um es zuhause
+              angenehm kühl zu haben
+            </li>
+            <li>
+              Echte Kühlleistung in Mietwohnungen erhalten möchten, in denen
+              Fensterklimaanlagen nicht erlaubt sind
+            </li>
+            <li>
+              Ältere Eltern oder kleine Kinder kühl halten möchten, ohne das
+              zentrale Kühlsystem laufen zu lassen
+            </li>
+            <li>
+              Tragbare Kühlung für Wohnmobile, Garagen oder überdachte
+              Außenbereiche genießen möchten
+            </li>
+          </ul>
+          <h2>Warum die Nachfrage nach Qinux BreezaMax so hoch ist</h2>
+          <!-- IMAGE 5 -->
+          <img
+            alt="Nachfrage nach Qinux BreezaMax"
+            class="inline"
+            src="images/adv4product1offer.webp"
+          />
           <p>
-            Noch etwa 3.200 Geräte auf Lager. Danach: mindestens 8 Wochen
-            Wartezeit.
+            Da der Sommer immer früher beginnt und Hitzewellen jedes Jahr
+            stärker werden, steigt die Nachfrage nach Qinux BreezaMax rasant an.
           </p>
-          <h2 class="section-head">
-            <span class="section-label">Stimmen</span
-            ><span class="section-title">Das sagen Kunden</span>
-          </h2>
-          <div class="reviews-grid">
-            <div class="review">
-              <div class="review-header">
-                <img alt="Dave R." src="images/adv4review1.webp" />
-                <div>
-                  <div class="review-name">Dave R., Köln</div>
-                  <div class="review-check">
-                    <img alt="" src="images/check2.webp" /> Verifizierter Kauf
-                  </div>
-                </div>
-                <div style="margin-left: auto; text-align: right">
-                  <div class="review-stars">★★★★★</div>
-                </div>
-              </div>
-              <p>
-                „Ich besitze eine Frigidaire-Fensterklimaanlage für 1340€. An
-                90% der Nächte kühlt der Qinux BreezaMax mein Schlafzimmer
-                genauso gut — und ich muss nicht 45 Minuten warten, bis der Raum
-                abgekühlt ist. Meine Stromrechnung ist letzten Monat um 140€
-                gesunken."
-              </p>
-            </div>
-            <!-- REVIEW 2 -->
-            <div class="review">
-              <div class="review-header">
-                <img alt="Karen M." src="images/adv4review2.webp" />
-                <div>
-                  <div class="review-name">Karen M., München</div>
-                  <div class="review-check">
-                    <img alt="" src="images/check2.webp" /> Verifizierter Kauf
-                  </div>
-                </div>
-                <div style="margin-left: auto; text-align: right">
-                  <div class="review-stars">★★★★★</div>
+          <p>„Wir kommen mit der Produktion kaum hinterher", gibt Berger zu.</p>
+          <p>
+            Das Problem: Als kleines deutsches Unternehmen kann Berger keine
+            unbegrenzten Mengen herstellen.
+          </p>
+          <p>
+            „Aktuell haben wir noch etwa 3.200 Geräte auf Lager. Sobald sie
+            ausverkauft sind, dauert die nächste Lieferung mindestens 8 Wochen."
+          </p>
+          <h2>Das sagen Kunden</h2>
+          <!-- REVIEW 1 -->
+          <div class="review">
+            <div class="review-header">
+              <img alt="Dave R." src="images/adv4review1.webp" />
+              <div>
+                <div class="review-name">Dave R., Köln</div>
+                <div class="review-check">
+                  <img alt="" src="images/check2.webp" /> Verifizierter Kauf
                 </div>
               </div>
-              <p>
-                „Meine Nachbarin kam in mein Wohnzimmer und fragte, ob ich
-                endlich die zentrale Klimaanlage repariert hätte. Hatte ich
-                nicht. Ich zeigte ihr den Qinux BreezaMax. Sie bestellte noch
-                vor dem Gehen einen. Am nächsten Morgen schrieb sie mir: erste
-                durchgeschlafene Nacht seit drei Wochen."
-              </p>
-            </div>
-            <!-- REVIEW 3 -->
-            <div class="review">
-              <div class="review-header">
-                <img alt="Linda S." src="images/adv4review3.webp" />
-                <div>
-                  <div class="review-name">Linda S., Hamburg</div>
-                  <div class="review-check">
-                    <img alt="" src="images/check2.webp" /> Verifizierter Kauf
-                  </div>
-                </div>
-                <div style="margin-left: auto; text-align: right">
-                  <div class="review-stars">★★★★★</div>
-                </div>
+              <div style="margin-left: auto; text-align: right">
+                <div class="review-stars">★★★★★</div>
               </div>
-              <p>
-                „Ich habe es für meinen 79-jährigen Vater gekauft, der wegen der
-                Stromkosten keine zentrale Klimaanlage benutzen wollte. Am
-                nächsten Morgen rief er mich an und sagte, es sei die kühlste
-                Nacht gewesen, die er seit Jahren hatte. Jeden Cent wert."
-              </p>
             </div>
+            <p>
+              „Ich besitze eine Frigidaire-Fensterklimaanlage für 1340€. An 90%
+              der Nächte kühlt der Qinux BreezaMax mein Schlafzimmer genauso gut
+              — und ich muss nicht 45 Minuten warten, bis der Raum abgekühlt
+              ist. Meine Stromrechnung ist letzten Monat um 140€ gesunken."
+            </p>
           </div>
-          <h2 class="section-head">
-            <span class="section-label">Angebot</span
-            ><span class="section-title"
-              >50% Einführungsrabatt — solange der Vorrat reicht</span
-            >
-          </h2>
-          <p>Unter 90€. Fast halber Preis. Nur für die aktuelle Charge.</p>
-          <h2 class="section-head">
-            <span class="section-label">Dringend</span
-            ><span class="section-title">Schnell sein</span>
-          </h2>
+          <!-- REVIEW 2 -->
+          <div class="review">
+            <div class="review-header">
+              <img alt="Karen M." src="images/adv4review2.webp" />
+              <div>
+                <div class="review-name">Karen M., München</div>
+                <div class="review-check">
+                  <img alt="" src="images/check2.webp" /> Verifizierter Kauf
+                </div>
+              </div>
+              <div style="margin-left: auto; text-align: right">
+                <div class="review-stars">★★★★★</div>
+              </div>
+            </div>
+            <p>
+              „Meine Nachbarin kam in mein Wohnzimmer und fragte, ob ich endlich
+              die zentrale Klimaanlage repariert hätte. Hatte ich nicht. Ich
+              zeigte ihr den Qinux BreezaMax. Sie bestellte noch vor dem Gehen
+              einen. Am nächsten Morgen schrieb sie mir: erste durchgeschlafene
+              Nacht seit drei Wochen."
+            </p>
+          </div>
+          <!-- REVIEW 3 -->
+          <div class="review">
+            <div class="review-header">
+              <img alt="Linda S." src="images/adv4review3.webp" />
+              <div>
+                <div class="review-name">Linda S., Hamburg</div>
+                <div class="review-check">
+                  <img alt="" src="images/check2.webp" /> Verifizierter Kauf
+                </div>
+              </div>
+              <div style="margin-left: auto; text-align: right">
+                <div class="review-stars">★★★★★</div>
+              </div>
+            </div>
+            <p>
+              „Ich habe es für meinen 79-jährigen Vater gekauft, der wegen der
+              Stromkosten keine zentrale Klimaanlage benutzen wollte. Am
+              nächsten Morgen rief er mich an und sagte, es sei die kühlste
+              Nacht gewesen, die er seit Jahren hatte. Jeden Cent wert."
+            </p>
+          </div>
+          <h2>Aktuell — 50% Einführungsrabatt solange der Vorrat reicht</h2>
+          <p>
+            Wer jetzt bestellt, kann Qinux BreezaMax zum Einführungspreis von
+            unter 90€ erhalten — fast zum halben regulären Verkaufspreis. Dieses
+            zeitlich begrenzte Angebot gilt nur für die aktuelle
+            Produktionscharge.
+          </p>
+          <h2>Schnell sein — fast ausverkauft</h2>
           <div class="stock-warn">
-            <strong>Hinweis:</strong> Lager leer — Aktion vorbei. Letztes Jahr
-            war Qinux BreezaMax vor Mittag ausverkauft.
+            <strong>⚠ Warnung:</strong> Sobald der Lagerbestand ausverkauft ist,
+            endet die Aktion sofort. Erfahrung aus dem letzten Jahr: Qinux
+            BreezaMax war bereits vor Mittag ausverkauft.
           </div>
           <!-- PRODUCT OFFER IMAGE -->
           <!-- CTA BLOCK -->
           <div class="cta-block">
             <div class="cta-update">
-              <strong>Update:</strong> Bestand verkauft sich schneller als
-              erwartet. 50% Rabatt solange verfügbar.
+              <strong>UPDATE:</strong> Die Nachfrage nach Qinux BreezaMax ist
+              stark gestiegen und der Bestand verkauft sich schneller als
+              erwartet. Bestellen Sie jetzt mit 50% Rabatt, bevor diese Charge
+              ausverkauft ist.
             </div>
-            <a class="cta-btn" data-open-quiz="" href="#quiz"
-              >Jetzt bestellen — 50% sparen</a
-            >
-            <p class="cta-note">50% Rabatt auf die aktuelle Charge</p>
+            <a class="cta-btn" data-open-quiz="" href="#quiz">
+              🛒 JETZT BESTELLEN UND 50% SPAREN!
+            </a>
+            <div class="cta-update" style="margin-top: 8px">
+              UPDATE: Die Nachfrage nach diesem Produkt ist stark gestiegen und
+              der Bestand verkauft sich extrem schnell. Sichern Sie sich jetzt
+              Ihr Exemplar mit 50% Rabatt, bevor es zu spät ist.
+            </div>
+            <p class="cta-note">
+              Sichern Sie sich jetzt Ihre Bestellung mit 50% Rabatt
+            </p>
             <p class="cta-note">
               <strong
                 >HINWEIS: Dieses Angebot ist NICHT auf Amazon oder eBay
@@ -504,9 +573,9 @@
                 Einfache Rückgabe
               </div>
             </div>
-            <a class="cta-btn" data-open-quiz="" href="#quiz"
-              >Jetzt bestellen — 50% sparen</a
-            >
+            <a class="cta-btn" data-open-quiz="" href="#quiz">
+              🛒 JETZT BESTELLEN UND 50% SPAREN!
+            </a>
             <img
               alt="Zahlungsmethoden"
               src="images/payment-methods.webp"
@@ -691,9 +760,9 @@
                 src="images/adv4product1offer.webp"
               />
             </div>
-            <a class="sidebar-btn" data-open-quiz="" href="#quiz"
-              >Verfügbarkeit prüfen</a
-            >
+            <a class="sidebar-btn" data-open-quiz="" href="#quiz">
+              Verfügbarkeit prüfen >>
+            </a>
             <div class="ratings-wrap">
               <div class="ratings-title">Kundenbewertungen</div>
               <div class="rating-overall">
@@ -701,40 +770,142 @@
                 <span class="rating-num">4,8 von 5</span>
               </div>
               <div class="rating-count">1460 Kundenbewertungen</div>
-              <div class="bar-row">
-                <span class="bar-label">5 Sterne</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 90%"></div>
+              <div class="circular-ratings">
+                <div class="circular-rating">
+                  <svg class="progress-ring" width="48" height="48">
+                    <circle
+                      class="progress-ring-circle-bg"
+                      stroke="#e5e7eb"
+                      stroke-width="3"
+                      fill="transparent"
+                      r="20"
+                      cx="24"
+                      cy="24"
+                    />
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="#1f2937"
+                      stroke-width="3"
+                      fill="transparent"
+                      r="20"
+                      cx="24"
+                      cy="24"
+                      stroke-dasharray="125.6"
+                      stroke-dashoffset="12.56"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  <div class="circular-label">5★</div>
+                  <div class="circular-pct">90%</div>
                 </div>
-                <span class="bar-pct">90%</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">4 Sterne</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 7%"></div>
+                <div class="circular-rating">
+                  <svg class="progress-ring" width="48" height="48">
+                    <circle
+                      class="progress-ring-circle-bg"
+                      stroke="#e5e7eb"
+                      stroke-width="3"
+                      fill="transparent"
+                      r="20"
+                      cx="24"
+                      cy="24"
+                    />
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="#1f2937"
+                      stroke-width="3"
+                      fill="transparent"
+                      r="20"
+                      cx="24"
+                      cy="24"
+                      stroke-dasharray="125.6"
+                      stroke-dashoffset="116.8"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  <div class="circular-label">4★</div>
+                  <div class="circular-pct">7%</div>
                 </div>
-                <span class="bar-pct">7%</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">3 Sterne</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 2%"></div>
+                <div class="circular-rating">
+                  <svg class="progress-ring" width="48" height="48">
+                    <circle
+                      class="progress-ring-circle-bg"
+                      stroke="#e5e7eb"
+                      stroke-width="3"
+                      fill="transparent"
+                      r="20"
+                      cx="24"
+                      cy="24"
+                    />
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="#1f2937"
+                      stroke-width="3"
+                      fill="transparent"
+                      r="20"
+                      cx="24"
+                      cy="24"
+                      stroke-dasharray="125.6"
+                      stroke-dashoffset="123"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  <div class="circular-label">3★</div>
+                  <div class="circular-pct">2%</div>
                 </div>
-                <span class="bar-pct">2%</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">2 Sterne</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 0%"></div>
+                <div class="circular-rating">
+                  <svg class="progress-ring" width="48" height="48">
+                    <circle
+                      class="progress-ring-circle-bg"
+                      stroke="#e5e7eb"
+                      stroke-width="3"
+                      fill="transparent"
+                      r="20"
+                      cx="24"
+                      cy="24"
+                    />
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="#1f2937"
+                      stroke-width="3"
+                      fill="transparent"
+                      r="20"
+                      cx="24"
+                      cy="24"
+                      stroke-dasharray="125.6"
+                      stroke-dashoffset="125.6"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  <div class="circular-label">2★</div>
+                  <div class="circular-pct">0%</div>
                 </div>
-                <span class="bar-pct">0%</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">1 Stern</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 1%"></div>
+                <div class="circular-rating">
+                  <svg class="progress-ring" width="48" height="48">
+                    <circle
+                      class="progress-ring-circle-bg"
+                      stroke="#e5e7eb"
+                      stroke-width="3"
+                      fill="transparent"
+                      r="20"
+                      cx="24"
+                      cy="24"
+                    />
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="#1f2937"
+                      stroke-width="3"
+                      fill="transparent"
+                      r="20"
+                      cx="24"
+                      cy="24"
+                      stroke-dasharray="125.6"
+                      stroke-dashoffset="124.3"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  <div class="circular-label">1★</div>
+                  <div class="circular-pct">1%</div>
                 </div>
-                <span class="bar-pct">1%</span>
               </div>
             </div>
             <div class="attrs-wrap">
@@ -847,24 +1018,24 @@
           <!-- Schritt 1: Raumtyp -->
           <div class="qstep active">
             <h2 class="qhead">Welchen Raum möchten Sie kühlen?</h2>
-            <button class="qopt" onclick="qSelect('space', 'Schlafzimmer')">
+            <button class="qopt" onclick="qSelect('space','Schlafzimmer')">
               <span class="em">🛏️</span>Schlafzimmer
             </button>
-            <button class="qopt" onclick="qSelect('space', 'Homeoffice')">
+            <button class="qopt" onclick="qSelect('space','Homeoffice')">
               <span class="em">💻</span>Homeoffice
             </button>
-            <button class="qopt" onclick="qSelect('space', 'Wohnzimmer')">
+            <button class="qopt" onclick="qSelect('space','Wohnzimmer')">
               <span class="em">🛋️</span>Wohnzimmer
             </button>
             <button
               class="qopt"
-              onclick="qSelect('space', 'Eine ganze kleine Wohnung')"
+              onclick="qSelect('space','Eine ganze kleine Wohnung')"
             >
               <span class="em">🏢</span>Eine ganze kleine Wohnung
             </button>
             <button
               class="qopt"
-              onclick="qSelect('space', 'Wohnmobil, Garage oder Werkstatt')"
+              onclick="qSelect('space','Wohnmobil, Garage oder Werkstatt')"
             >
               <span class="em">🚐</span>Wohnmobil, Garage oder Werkstatt
             </button>
@@ -876,16 +1047,16 @@
               Eine grobe Schätzung reicht – damit wählen wir die richtige
               Kühlleistung.
             </p>
-            <button class="qopt" onclick="qSelect('size', 'unter14')">
+            <button class="qopt" onclick="qSelect('size','unter14')">
               Unter 14 m² (kleines Schlafzimmer)
             </button>
-            <button class="qopt" onclick="qSelect('size', '14-28')">
+            <button class="qopt" onclick="qSelect('size','14-28')">
               14 bis 28 m² (durchschnittlicher Raum)
             </button>
-            <button class="qopt" onclick="qSelect('size', '28-51')">
+            <button class="qopt" onclick="qSelect('size','28-51')">
               28 bis 51 m² (großer Raum)
             </button>
-            <button class="qopt" onclick="qSelect('size', '51plus')">
+            <button class="qopt" onclick="qSelect('size','51plus')">
               Über 51 m² (offener Grundriss oder mehrere Räume)
             </button>
           </div>
@@ -898,30 +1069,26 @@
             </p>
             <button
               class="qopt"
-              onclick="qSelect('window', 'Kein nutzbares Fenster')"
+              onclick="qSelect('window','Kein nutzbares Fenster')"
             >
               <span class="em">🚫</span>Kein nutzbares Fenster
             </button>
             <button
               class="qopt"
-              onclick="
-                qSelect('window', 'Vermieter erlaubt keine Installation')
-              "
+              onclick="qSelect('window','Vermieter erlaubt keine Installation')"
             >
               <span class="em">🔑</span>Vermieter erlaubt keine Installation
             </button>
             <button
               class="qopt"
-              onclick="
-                qSelect('window', 'Fenster vorhanden, aber ohne Aufwand')
-              "
+              onclick="qSelect('window','Fenster vorhanden, aber ohne Aufwand')"
             >
               <span class="em">🪟</span>Fenster vorhanden, aber ich möchte
               keinen Aufwand
             </button>
             <button
               class="qopt"
-              onclick="qSelect('window', 'Kein Schlauch am Fenster')"
+              onclick="qSelect('window','Kein Schlauch am Fenster')"
             >
               <span class="em">🌀</span>Kein Schlauch, der das Fenster blockiert
             </button>
@@ -947,32 +1114,32 @@
             <h2 class="qhead">Was stört Sie gerade am meisten?</h2>
             <button
               class="qopt"
-              onclick="qSelect('pain', 'Zu heiß zum Schlafen')"
+              onclick="qSelect('pain','Zu heiß zum Schlafen')"
             >
               <span class="em">😓</span>Es ist zu heiß zum Schlafen
             </button>
             <button
               class="qopt"
-              onclick="qSelect('pain', 'Stromrechnung zu hoch')"
+              onclick="qSelect('pain','Stromrechnung zu hoch')"
             >
               <span class="em">💸</span>Meine Stromrechnung ist zu hoch
             </button>
             <button
               class="qopt"
-              onclick="qSelect('pain', 'Klimaanlage zu laut')"
+              onclick="qSelect('pain','Klimaanlage zu laut')"
             >
               <span class="em">🔊</span>Meine Klimaanlage oder mein Ventilator
               ist zu laut
             </button>
             <button
               class="qopt"
-              onclick="qSelect('pain', 'Kann nichts installieren')"
+              onclick="qSelect('pain','Kann nichts installieren')"
             >
               <span class="em">🛠️</span>Ich kann nichts installieren
             </button>
             <button
               class="qopt"
-              onclick="qSelect('pain', 'Ventilatoren wälzen nur heiße Luft um')"
+              onclick="qSelect('pain','Ventilatoren wälzen nur heiße Luft um')"
             >
               <span class="em">🌬️</span>Ventilatoren wälzen nur heiße Luft um
             </button>
@@ -1072,15 +1239,15 @@
           <!-- Schritt 9: Dringlichkeit -->
           <div class="qstep">
             <h2 class="qhead">Wann brauchen Sie Abkühlung?</h2>
-            <button class="qopt" onclick="qSelect('urgency', 'Heute')">
+            <button class="qopt" onclick="qSelect('urgency','Heute')">
               <span class="em">🔥</span>Heute – mir ist jetzt schon zu heiß
             </button>
-            <button class="qopt" onclick="qSelect('urgency', 'Diese Woche')">
+            <button class="qopt" onclick="qSelect('urgency','Diese Woche')">
               <span class="em">📦</span>Innerhalb einer Woche
             </button>
             <button
               class="qopt"
-              onclick="qSelect('urgency', 'Ich informiere mich')"
+              onclick="qSelect('urgency','Ich informiere mich')"
             >
               <span class="em">🔎</span>Ich informiere mich erst
             </button>
@@ -1159,7 +1326,7 @@
                 ><img
                   alt="Qinux BreezaMax"
                   class="pimg"
-                  onerror="this.style.display = 'none'"
+                  onerror="this.style.display='none'"
                   src="images/adv4product1offer.webp"
                   style="display: none"
               /></a>
@@ -1411,7 +1578,7 @@
         else if (qData.size === "28-51") sizeFactor = 1.35;
         else if (qData.size === "51plus") sizeFactor = 1.6;
         let minutes = Math.round(
-          Math.min(14, Math.max(5, gap * 0.7 * sizeFactor)),
+          Math.min(14, Math.max(5, gap * 0.7 * sizeFactor))
         );
 
         const space = qData.space || "Zimmer";
@@ -1464,7 +1631,7 @@
         const w = box && box.clientWidth ? box.clientWidth : 320;
         const h = Math.max(
           240,
-          box && box.clientHeight ? box.clientHeight : 280,
+          box && box.clientHeight ? box.clientHeight : 280
         );
         canvas.width = Math.round(w * dpr);
         canvas.height = Math.round(h * dpr);
@@ -1526,8 +1693,8 @@
         function drawLine(points, color, dashed, fill) {
           if (fill) {
             const grad = ctx.createLinearGradient(0, pad.t, 0, h - pad.b);
-            grad.addColorStop(0, "rgba(10,10,10,.12)");
-            grad.addColorStop(1, "rgba(10,10,10,0)");
+            grad.addColorStop(0, "rgba(15,125,140,.18)");
+            grad.addColorStop(1, "rgba(15,125,140,0)");
             ctx.beginPath();
             points.forEach((p, i) => {
               const xx = x(p.t),
@@ -1552,19 +1719,19 @@
           ctx.stroke();
           ctx.setLineDash([]);
         }
-        drawLine(epi, "#0a0a0a", false, true);
-        drawLine(fan, "#9a9a9a", true, false);
+        drawLine(epi, "#0f7d8c", false, true);
+        drawLine(fan, "#c0392b", true, false);
 
         const hit = epi.reduce(
           (best, p, i) =>
             Math.abs(p.t - minutes) < Math.abs(epi[best].t - minutes)
               ? i
               : best,
-          0,
+          0
         );
         const hx = x(epi[hit].t),
           hy = y(epi[hit].v);
-        ctx.fillStyle = "#5c6770";
+        ctx.fillStyle = "#ff6b35";
         ctx.strokeStyle = "#fff";
         ctx.lineWidth = 3;
         ctx.beginPath();
@@ -1572,11 +1739,11 @@
         ctx.fill();
         ctx.stroke();
         const label = tgt + "°C in ~" + minutes + " Min.";
-        ctx.font = 'bold 13px "IBM Plex Sans", Arial, sans-serif';
+        ctx.font = "bold 13px Arial, sans-serif";
         const tw = ctx.measureText(label).width + 16;
         const lx = Math.min(Math.max(hx - tw / 2, pad.l), w - pad.r - tw),
           ly = Math.max(8, hy - 38);
-        ctx.fillStyle = "#5c6770";
+        ctx.fillStyle = "#ff6b35";
         ctx.beginPath();
         ctx.roundRect(lx, ly, tw, 26, 5);
         ctx.fill();
@@ -1585,13 +1752,13 @@
         ctx.textBaseline = "middle";
         ctx.fillText(label, lx + tw / 2, ly + 13);
 
-        ctx.font = '12px "IBM Plex Sans", Arial, sans-serif';
+        ctx.font = "12px Arial, sans-serif";
         ctx.textBaseline = "middle";
         ctx.textAlign = "left";
-        ctx.fillStyle = "#0a0a0a";
+        ctx.fillStyle = "#0f7d8c";
         ctx.fillRect(w / 2 - 100, h - 24, 14, 3);
         ctx.fillText("Qinux BreezaMax", w / 2 - 80, h - 22);
-        ctx.fillStyle = "#9a9a9a";
+        ctx.fillStyle = "#c0392b";
         ctx.fillRect(w / 2 + 10, h - 24, 14, 3);
         ctx.fillText("Normaler Kühler", w / 2 + 30, h - 22);
       }
@@ -1727,7 +1894,7 @@
           let n = parseInt(el.textContent) || 38;
           n = Math.max(
             24,
-            Math.min(57, n + (Math.floor(Math.random() * 5) - 2)),
+            Math.min(57, n + (Math.floor(Math.random() * 5) - 2))
           );
           el.textContent = n;
         }, 3000);
