@@ -361,9 +361,7 @@ h1 {
 .review-header img {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--line);
   box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
 }
 .review-name {
@@ -376,7 +374,7 @@ h1 {
   color:var(--muted);
 }
 .review-stars {
-  color:var(--gold);
+  color:var(--accent-dark);
   font-size: 15px;
   margin-bottom: 2px;
 }
@@ -389,6 +387,7 @@ h1 {
   height: 16px;
   vertical-align: middle;
   margin-right: 4px;
+  filter: invert(1);
 }
 .review-check {
   font-size: 12px;
@@ -533,6 +532,7 @@ h1 {
   padding: 28px;
   border: 1px solid var(--line);
   box-shadow:var(--shadow);
+  margin-bottom: 32px;
 }
 .comments-title {
   font-size: 18px;
@@ -557,7 +557,6 @@ h1 {
   transform: translateX(2px);
 }
 .comment:last-child {
-  border-bottom: none;
 }
 .comment-avatar {
   width: 44px;
@@ -1065,7 +1064,7 @@ footer {
   }
   .comment-actions {
     font-size: 11px;
-    gap: 12px;
+    gap: 2px;
   }
   .circular-ratings {
     gap: 12px;
